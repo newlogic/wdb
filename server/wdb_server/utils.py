@@ -32,7 +32,10 @@ ioloop = IOLoop.current()
 
 try:
     import pyinotify
-except ImportError:
+
+    #To test if pyinotify is working in current OS
+    pyinotify.WatchManager()
+except (ImportError, OSError):
     LibPythonWatcher = None
 else:
 
